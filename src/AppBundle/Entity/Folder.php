@@ -33,7 +33,7 @@ class Folder
     private $items;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=false)
      */
     private $hidden;
 
@@ -58,6 +58,11 @@ class Folder
      */
     private $groups;
 
+    public function __construct()
+    {
+        $this->hidden = false;
+    }
+
     /**
      * @return mixed
      */
@@ -78,7 +83,7 @@ class Folder
 
     public function isAccessible(AdvancedUserInterface $user)
     {
-        return !empty(array_intersect($user->getGroups()->getValues(), $this->getGroups()->getValues()));
+        return $user->hasRole('ROLE_ADMIN') || !empty(array_intersect($user->getGroups()->getValues(), $this->getGroups()->getValues()));
     }
 
     /**
