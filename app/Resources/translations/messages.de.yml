@@ -16,6 +16,7 @@ groups: Gruppen
 description: Beschreibung
 login_url: Login URL
 username: Benutzername
+email: E-Mail
 password: Passwort
 hide: Verstecken
 deleted: Gelöscht!

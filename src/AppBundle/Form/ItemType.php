@@ -15,6 +15,7 @@ class ItemType extends AbstractType
             ->add('description', null, ['label' => 'description'])
             ->add('loginUrl', null, ['label' => 'login_url'])
             ->add('login', null, ['label' => 'username'])
+            ->add('email', null, ['label' => 'email'])
             ->add('value', null, ['label' => 'password'])
             ->add('save', SubmitType::class, ['label' => 'add_item']);
     }

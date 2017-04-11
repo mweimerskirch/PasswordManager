@@ -33,8 +33,7 @@ class Item
     private $name;
 
     /**
-     *
-     * @ORM\Column(type="string", nullable=false)
+     * @ORM\Column(type="text", nullable=false)
      */
     private $description;
 
@@ -45,7 +44,7 @@ class Item
 
     /**
      * @Assert\NotBlank()
-     * @ORM\Column(type="string",  nullable=false)
+     * @ORM\Column(type="text",  nullable=false)
      */
     private $value;
 
@@ -54,6 +53,12 @@ class Item
      * @ORM\Column(type="string", nullable=false)
      */
     private $login;
+
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="string", nullable=false)
+     */
+    private $email;
 
     /**
      * @Assert\Url(
@@ -165,6 +170,24 @@ class Item
     public function setLogin($login)
     {
         $this->login = $login;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     * @return Item
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
         return $this;
     }
 
