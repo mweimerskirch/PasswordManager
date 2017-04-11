@@ -1,8 +1,8 @@
 $(function () {
     var $body = $('body');
-    var copy_pass = $('.copy_pass').text();
-    var show_pass = $('.show_pass').text();
-    var hide = $('.hide').text();
+    var copy_pass = $('#copy_pass').val();
+    var show_pass = $('#show_pass').val();
+    var hide = $('#hide').val();
 
     $body.on('click', '.password-hide', function (event) {
         var $link = $(this);

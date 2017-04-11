@@ -1,4 +1,8 @@
 {% if folder.accessible(app.user) %}
+    <input type="hidden" id="load_pass" value="{{ 'load_pass'|trans }}"/>
+    <input type="hidden" id="copy_pass" value="{{ 'copy_pass'|trans }}"/>
+    <input type="hidden" id="show_pass" value="{{ 'show_pass'|trans }}"/>
+
     {% include 'AppBundle:Folder:folderName.html.twig' %}
     {% if folder.parent is empty %}
         <a href="{{ path('createSubFolder',{'id':folder.id}) }}" class="btn btn-primary"><span
@@ -15,10 +19,6 @@
                 <td width="45%">
                     <p><a href="{{ item.loginUrl }}" target="_blank">{{ item.loginUrl }}</a></p>
                     <p>{{ item.login }}</p>
-                    <p>
-                    <p class="load_pass" hidden="hidden">{{ 'load_pass'|trans }}</p>
-                    <p class="copy_pass" hidden="hidden">{{ 'copy_pass'|trans }}</p>
-                    <p class="show_pass" hidden="hidden">{{ 'show_pass'|trans }}</p>
                     <p class="hide" hidden="hidden">{{ 'hide'|trans }}</p>
                     <button href="{{ path('item_detail', {'id': item.id}) }}"
                             class="btn btn-sm btn-default copy-password">{{ 'load_pass'|trans }}
@@ -26,8 +26,6 @@
                     <button href="{{ path('item_detail', {'id': item.id}) }}"
                             class="btn btn-sm btn-default password-value">{{ 'show_pass'|trans }}
                     </button>
-                    <br>
-                    </p>
                 <td width="10%">
                     <a class="btn btn-warning" href="{{ path('editItem', {'itemId': item.id,'folderId': folder.id}) }}"
                        type="submit">
